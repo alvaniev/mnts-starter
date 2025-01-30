@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:8
+    platform: linux/amd64
+    container_name: 2021-mnts-db
+    # volumes:
+    #   - db-store:/var/lib/mysql
+    ports:
+      - "3308:3308"
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=2021-mnts
+      - MYSQL_TCP_PORT=3308
+  backend-app:
+    image: alvaniev/2021-mnts-backend
+    container_name: 2021-mnts-backend
+    # volumes:
+    #   - static-dir:/usr/src/app/public
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_DBDIALECT=mysql
+      - NODE_DBHOST=2021-mnts-db
+      - NODE_DBPORT=3308
+      - NODE_DBUSER=root
+      - NODE_DBPWD=root
+      - NODE_DBSCHEMA=2021-mnts
+      - NODE_DBSYNC=true
+      - NODE_HOST=http://localhost:3000
+
+# volumes:
+#   db-store:
+#     name: 2021-mnts-db-store
+#   static-dir:
+#     name: 2021-mnts-static-dir
