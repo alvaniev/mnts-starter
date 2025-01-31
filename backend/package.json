@@ -6,7 +6,7 @@
   "scripts": {
     "test": "newman run testing/collection.json -e testing/env.json",
     "start": "nodemon api.js",
-    "image": "docker build -t alvaniev/2021-mnts-backend .",
+    "image": "docker build -t alvaniev/mnts-backend .",
     "dockerup": "docker-compose -f docker-compose.yml up -d",
     "dbup": "docker-compose -f db.yml up -d",
     "dockerdown": "docker-compose -f docker-compose.yml down",

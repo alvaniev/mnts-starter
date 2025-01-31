@@ -2,8 +2,8 @@ version: "3.8"
 
 services:
   backend:
-    image: alvaniev/2021-mnts-backend
-    container_name: 2021-mnts-backend
+    image: alvaniev/mnts-backend
+    container_name: mnts-backend
     ports:
       - 3000:3000
     environment:
@@ -12,6 +12,6 @@ services:
       - NODE_DBPORT=3306
       - NODE_DBUSER=root
       - NODE_DBPWD=root
-      - NODE_DBSCHEMA=2021-mnts
+      - NODE_DBSCHEMA=mnts
       - NODE_DBSYNC=true
       - NODE_HOST=http://localhost:3000

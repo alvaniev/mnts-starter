@@ -6,21 +6,22 @@ services:
     # volumes:
     #   - db-store:/var/lib/mysql
     platform: linux/amd64
-    container_name: 2021-mnts-db
+    container_name: db
     ports:
       - "3306:3306"
     command: --default-authentication-plugin=mysql_native_password
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=2021-mnts
+      - MYSQL_DATABASE=mnts
       - MYSQL_TCP_PORT=3306
 
   adminer:
     image: adminer
+    container_name: adminer
     restart: always
     ports:
       - 8087:8080   
 
 # volumes:
 #   db-store:
-#     name: 2021-mnts-db-store
+#     name: db-store
