@@ -26,6 +26,10 @@ User.init(
         return `${process.env.NODE_HOST}/${this.getDataValue("avatar")}`;
       },
     },
+    isadmin: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
   },
   { sequelize: db, modelName: "user", freezeTableName: true }
 );

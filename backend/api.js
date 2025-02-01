@@ -118,6 +118,7 @@ api.use((err, req, res, next) => {
             username: user.username,
             pwd: user.pwd,
             avatar: user.avatar,
+            isadmin: user.isadmin
           });
         }
         // associate mountains to users
