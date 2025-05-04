@@ -5,6 +5,9 @@
       {{ mnt.name }}
     </v-card-title>
     <div class="d-flex">
+      <v-card-text>{{ mnt.description }}</v-card-text>
+    </div>
+    <div class="d-flex">
       <v-card-text>Höhe: {{ mnt.el }}m</v-card-text>
     </div>
   </v-card>
@@ -21,6 +24,7 @@ export default {
     const mnt = reactive({
       id: "",
       name: "",
+      description: "",
       img: "",
       el: 0,
       hasMountainRailway: false,
@@ -29,6 +33,7 @@ export default {
     (async () => {
       const loadedMnt = await loadMountain(props.mntId);
       mnt.name = loadedMnt.properties.name;
+      mnt.description = loadedMnt.properties.description;
       mnt.el = loadedMnt.properties.el;
       mnt.img = loadedMnt.properties.img;
     })();

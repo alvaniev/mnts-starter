@@ -33,6 +33,7 @@ function toGeoFeatureObj(resultSet) {
       properties: {
         id: resultSet.id,
         name: resultSet.name,
+        description: resultSet.description,
         el: resultSet.elevation,
         img: isEmpty(resultSet.image)
           ? undefined
@@ -126,6 +127,7 @@ exports.addPublicMountain = async (req, res, next) => {
   try {
     const resultSet = await Mountain.create({
       name: req.body.name,
+      description: req.body.description,
       elevation: req.body.elevation,
       longitude: req.body.longitude,
       latitude: req.body.latitude,
@@ -151,6 +153,9 @@ exports.updatePublicMountain = async (req, res, next) => {
     if (!isEmpty(mnt)) {
       if (!isEmpty(req.body.name)) {
         mnt.name = req.body.name;
+      }
+      if (!isEmpty(req.body.description)) {
+        mnt.description = req.body.description;
       }
       if (!isEmpty(req.body.elevation)) {
         mnt.elevation = req.body.elevation;
@@ -187,6 +192,9 @@ exports.updateUserMountain = async (req, res, next) => {
     if (!isEmpty(mnt)) {
       if (!isEmpty(req.body.name)) {
         mnt.name = req.body.name;
+      }
+      if (!isEmpty(req.body.description)) {
+        mnt.description = req.body.description;
       }
       if (!isEmpty(req.body.elevation)) {
         mnt.elevation = req.body.elevation;
@@ -244,6 +252,7 @@ exports.addUserMountain = async (req, res, next) => {
   try {
     const mnt = await Mountain.create({
       name: req.body.name,
+      description: req.body.description,
       elevation: req.body.elevation,
       longitude: req.body.longitude,
       latitude: req.body.latitude,

@@ -11,6 +11,13 @@
           clearable
         ></v-text-field>
         <v-text-field
+          v-model="mntDescription.value.value"
+          label="Description"
+          :error-messages="errors.mntDescription"
+          dense
+          clearable
+        ></v-text-field>
+        <v-text-field
           v-model="mntLatitude.value.value"
           label="Breitengrad"
           :error-messages="errors.mntLatitude"
@@ -68,6 +75,7 @@ export default {
     const { handleSubmit, errors } = useForm({
       validationSchema: yup.object({
         mntName: yup.string().required("Pflichtfeld"),
+        mntDescription: yup.string(),
         mntLatitude: yup
           .number()
           .min(-90.0, "Breitengrad >= -90.0°")
@@ -89,6 +97,7 @@ export default {
     });
 
     const mntName = useField("mntName");
+    const mntDescription = useField("mntDescription");
     const mntLatitude = useField("mntLatitude");
     const mntLongitude = useField("mntLongitude");
     const mntElevation = useField("mntElevation");
@@ -108,6 +117,7 @@ export default {
         // step 1: create new mountain object at backend (without image)
         let reqBody = JSON.stringify({
           name: mntName.value.value,
+          description: mntDescription.value.value,
           elevation: mntElevation.value.value,
           latitude: mntLatitude.value.value,
           longitude: mntLongitude.value.value,
@@ -180,6 +190,7 @@ export default {
 
     return {
       mntName,
+      mntDescription,
       mntLatitude,
       mntLongitude,
       mntElevation,

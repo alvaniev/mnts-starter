@@ -97,6 +97,7 @@ api.use((err, req, res, next) => {
             name: mountain.properties.name,
             image: mountain.properties.img,
             elevation: mountain.properties.el,
+            description: mountain.properties.description,
             hasmountainrailway: mountain.properties.mountainrailway,
             longitude: mountain.geometry.coordinates[0],
             latitude: mountain.geometry.coordinates[1],
