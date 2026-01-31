@@ -12,7 +12,7 @@
           >{{ firstname }} {{ lastname }}</span
         >
         <v-avatar>
-          <img :src="avatar" width="25" />
+          <v-img :src="avatar" width="25" />
         </v-avatar>
         <v-btn text @click="logout">
           <span class="mr-2 body-1 font-weight-light text-none">Logout</span>

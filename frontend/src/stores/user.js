@@ -18,7 +18,7 @@ export const useUserStore = defineStore("user", () => {
   const avatar = ref("");
 
   // define computed values (derived values)
-  const isAuthenticated = computed(() => !isEmpty(jwt.value));
+  const isAuthenticated = computed(() => !isEmpty(id.value));
 
   // (if needed) define a $reset-method
   // $-sign-methods are built-in methods in vue/pinia, which are normaly predefined,
