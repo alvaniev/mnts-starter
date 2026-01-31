@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "3de9b91c-c723-4408-ab15-8f3cbe388a07",
-		"name": "mnts-backend",
+		"_postman_id": "b32ab6e7-b078-4f4c-a59d-869966791f33",
+		"name": "2021-mnts-backend",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "9910444"
 	},
@@ -17,17 +17,24 @@
 							"    pm.response.to.have.status(200);",
 							"});",
 							"",
-							"const avatars = pm.response.json();",
-							"const avatar01Url = avatars[0];",
-							"const avatar01 = avatar01Url.substring(avatar01Url.lastIndexOf(\"/\")+1);",
-							"const avatar12Url = avatars[11];",
-							"const avatar12 = avatar12Url.substring(avatar12Url.lastIndexOf(\"/\")+1);",
+							"const avatars = new Set(pm.response.json().map(avatarUrl => avatarUrl.substring(avatarUrl.lastIndexOf(\"/\")+1)));",
 							"pm.test(\"GET /avatars - response\", () => {",
-							"  pm.expect(avatar01).to.eql(\"avatar01.svg\");",
-							"  pm.expect(avatar12).to.eql(\"avatar12.svg\");",
+							"  pm.expect(avatars.has(\"avatar01.svg\")).to.eql(true);",
+							"  pm.expect(avatars.has(\"avatar02.svg\")).to.eql(true);",
+							"  pm.expect(avatars.has(\"avatar03.svg\")).to.eql(true);",
+							"  pm.expect(avatars.has(\"avatar04.svg\")).to.eql(true);",
+							"  pm.expect(avatars.has(\"avatar05.svg\")).to.eql(true);",
+							"  pm.expect(avatars.has(\"avatar06.svg\")).to.eql(true);",
+							"  pm.expect(avatars.has(\"avatar07.svg\")).to.eql(true);",
+							"  pm.expect(avatars.has(\"avatar08.svg\")).to.eql(true);",
+							"  pm.expect(avatars.has(\"avatar09.svg\")).to.eql(true);",
+							"  pm.expect(avatars.has(\"avatar10.svg\")).to.eql(true);",
+							"  pm.expect(avatars.has(\"avatar11.svg\")).to.eql(true);",
+							"  pm.expect(avatars.size).to.eql(12);",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -42,8 +49,8 @@
 				"header": [
 					{
 						"key": "",
-						"type": "text",
 						"value": "",
+						"type": "text",
 						"disabled": true
 					}
 				],
@@ -411,8 +418,8 @@
 				"header": [
 					{
 						"key": "",
-						"type": "text",
 						"value": "",
+						"type": "text",
 						"disabled": true
 					}
 				],
@@ -479,8 +486,8 @@
 				"header": [
 					{
 						"key": "",
-						"type": "text",
 						"value": "",
+						"type": "text",
 						"disabled": true
 					}
 				],
@@ -547,8 +554,8 @@
 				"header": [
 					{
 						"key": "",
-						"type": "text",
 						"value": "",
+						"type": "text",
 						"disabled": true
 					}
 				],
@@ -1141,8 +1148,8 @@
 				"header": [
 					{
 						"key": "",
-						"type": "text",
 						"value": "",
+						"type": "text",
 						"disabled": true
 					}
 				],
@@ -1211,8 +1218,8 @@
 				"header": [
 					{
 						"key": "",
-						"type": "text",
 						"value": "",
+						"type": "text",
 						"disabled": true
 					}
 				],
@@ -1336,8 +1343,8 @@
 				"header": [
 					{
 						"key": "",
-						"type": "text",
 						"value": "",
+						"type": "text",
 						"disabled": true
 					}
 				],
@@ -1405,8 +1412,8 @@
 				"header": [
 					{
 						"key": "",
-						"type": "text",
 						"value": "",
+						"type": "text",
 						"disabled": true
 					}
 				],
@@ -2157,8 +2164,8 @@
 				"header": [
 					{
 						"key": "",
-						"type": "text",
 						"value": "",
+						"type": "text",
 						"disabled": true
 					}
 				],
@@ -2223,8 +2230,8 @@
 				"header": [
 					{
 						"key": "",
-						"type": "text",
 						"value": "",
+						"type": "text",
 						"disabled": true
 					}
 				],
