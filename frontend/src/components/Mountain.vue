@@ -6,6 +6,7 @@
     </v-card-title>
     <div class="d-flex">
       <v-card-text>{{ mnt.description }}</v-card-text>
+      <!-- <v-card-text v-html="mnt.description"></v-card-text> -->
     </div>
     <div class="d-flex">
       <v-card-text>Höhe: {{ mnt.el }}m</v-card-text>
